@@ -33,15 +33,20 @@ public class StickFigure
 
       page.setColor (color);
 
-      // head
+      // head         x        y    w   h
+	  page.drawOval(baseX-10, top, 20, 20);
 
-      // trunk
+	  // trunk
+	  //increasing y moves the line closer to the bottom
+	  //  center of head, moved down to bottom of head
+	  page.drawLine(baseX, top + 20, baseX, baseY - 30);
 
-      //page.drawLine (baseX, baseY-30, baseX-15, baseY);  // legs
-      //page.drawLine (baseX, baseY-30, baseX+15, baseY);
 
-      //page.drawLine (baseX, baseY-70, baseX-25, baseY-70);  // arms
-      //page.drawLine (baseX, baseY-70, baseX+20, baseY-85);
+      page.drawLine (baseX, baseY-30, baseX-15, baseY);  // legs
+      page.drawLine (baseX, baseY-30, baseX+15, baseY);
+
+      page.drawLine (baseX, baseY-70, baseX-25, baseY-70);  // arms
+      page.drawLine (baseX, baseY-70, baseX+20, baseY-85);
 
    }
 }
