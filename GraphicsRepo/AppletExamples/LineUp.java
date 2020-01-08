@@ -7,8 +7,9 @@
 import java.util.Random;
 import java.applet.Applet;
 import java.awt.*;
+import javax.swing.*;
 
-public class LineUp extends Applet
+public class LineUp extends JApplet
 {
    private final int APPLET_WIDTH = 400;
    private final int APPLET_HEIGHT = 150;
