@@ -9,29 +9,35 @@ import java.awt.*;
 import java.util.Random;
 public class Building
 {
-	private final int WINDOW_SIZE = 20;
-	private final int WINDOW_PADDING =5;
+	private final int WINDOW_SIZE = 10;
+	private final int WINDOW_PADDING = 10;
 
 	private int base, height, xpoint, ypoint;
 	private Color color;
 	private Random generator = new Random();
 
     public Building(int x, int y, int xWindows, int yWindows, Color shade){
-		 base = WINDOW_PADDING+xWindows*(WINDOW_SIZE+WINDOW_PADDING); //base and height are in pixels
-		 height = WINDOW_PADDING+yWindows*(WINDOW_SIZE+WINDOW_PADDING);
+		 base = WINDOW_PADDING + xWindows * (WINDOW_SIZE + WINDOW_PADDING); //base and height are in pixels
+		 height = WINDOW_PADDING + yWindows * (WINDOW_SIZE + WINDOW_PADDING);
+
 		 color = shade;
 		 xpoint = x;
+		 //moves the starting point from upper left to lower left corner
 		 ypoint = y-height;
 	}
 
 	public void draw(Graphics page){
-		int interval = 10;
-
+		page.setColor(Color.black);
+		page.drawRect(xpoint-1, ypoint-1, base, height);
 		page.setColor(color);
 		page.fillRect(xpoint, ypoint, base, height);
 
-		for (int xOff=WINDOW_PADDING; xOff<base-WINDOW_SIZE; xOff+=WINDOW_SIZE+WINDOW_PADDING) {
-			for (int yOff=WINDOW_PADDING; yOff<height-WINDOW_SIZE; yOff+=WINDOW_SIZE+WINDOW_PADDING) {
+		//rows of windows
+		for (int xOff = WINDOW_PADDING; xOff < base - WINDOW_SIZE; xOff += WINDOW_SIZE + WINDOW_PADDING){
+			//columns of windows
+			for (int yOff = WINDOW_PADDING; yOff < height-WINDOW_SIZE; yOff += WINDOW_SIZE + WINDOW_PADDING) {
+
+				//turns windows on and off
 				if (generator.nextInt(100) < 9)
 					page.setColor(Color.yellow);
 				else

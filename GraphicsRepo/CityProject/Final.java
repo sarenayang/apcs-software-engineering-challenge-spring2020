@@ -21,14 +21,22 @@ public class Final extends Applet{
 		h2 = gen.nextInt(100) + 150;
 		h3 = gen.nextInt(100) + 150;
 		h4 = gen.nextInt(100) + 150;
-		build1 = new Building(50, 200, 10, 4, Color.red);
-		build2 = new Building(155, 200, 4, 6, Color.green);
+
+		//when moving buildings over, do #of windows of previous building * 20 + 10 to be next to each other
+		//(start x, start y, num of windows across, number of windows down, color)
+
+		build1 = new Building(50, 300, 4, 4, Color.red);
+		build2 = new Building(140, 300, 4, 6, Color.green);
+		build3 = new Building(230, 300, 5, 9, Color.blue);
+		build4 = new Building(340, 300, 6, 3, Color.yellow);
 		setSize (APPLET_WIDTH, APPLET_HEIGHT);
 
 	}
 	public void paint(Graphics page){
 		build1.draw(page);
 		build2.draw(page);
+		build3.draw(page);
+		build4.draw(page);
 		try{
 			//pause the program for a quarter second (millisecond)
 			Thread.sleep(100);
