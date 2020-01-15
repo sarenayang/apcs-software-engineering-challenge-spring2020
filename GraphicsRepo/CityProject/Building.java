@@ -26,6 +26,19 @@ public class Building
 		 ypoint = y-height;
 	}
 
+	public int getXPoint(){
+		return xpoint;
+	}
+	public int getYPoint(){
+		return ypoint;
+	}
+	public void setX(int x){
+		xpoint = x;
+	}
+	public void setBase(int y){
+		base = y;
+	}
+
 	public void draw(Graphics page){
 		page.setColor(Color.black);
 		page.drawRect(xpoint-1, ypoint-1, base, height);
