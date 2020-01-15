@@ -16,18 +16,25 @@ public class Final extends Applet{
 
 	public void init(){
 		base = 150;
+
 		h1 = gen.nextInt(100) + 150;
 		h2 = gen.nextInt(100) + 150;
 		h3 = gen.nextInt(100) + 150;
 		h4 = gen.nextInt(100) + 150;
-		build1 = new Building(50, 150, base, 100, Color.red);
-		build2 = new Building(base + 100, 50, base, 200, Color.green);
+		build1 = new Building(50, 200, 10, 4, Color.red);
+		build2 = new Building(155, 200, 4, 6, Color.green);
 		setSize (APPLET_WIDTH, APPLET_HEIGHT);
 
 	}
 	public void paint(Graphics page){
 		build1.draw(page);
 		build2.draw(page);
+		try{
+			//pause the program for a quarter second (millisecond)
+			Thread.sleep(100);
+			}
+		catch(InterruptedException e) {}
+		repaint();
 
 	}
 
