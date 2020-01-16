@@ -21,7 +21,19 @@ public class StoreBuild{
 		build8 = new Building(912, 300, 6, 8, Color.magenta);
 		build9 = new Building(1042, 300, 6, 14, Color.darkGray);
 
+		//makes better colors haha
+		build1.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
+		build2.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
+		build3.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
+		build4.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
+		build5.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
+		build6.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
+		build7.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
+		build8.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
+		build9.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
 	}
+
+
 	public void draw(Graphics page){
 
 		//draws buildings
@@ -34,17 +46,6 @@ public class StoreBuild{
 		build7.draw(page);
 		build8.draw(page);
 		build9.draw(page);
-
-		//changes colors of buildings
-		build1.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
-		build2.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
-		build3.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
-		build4.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
-		build5.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
-		build6.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
-		build7.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
-		build8.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
-		build9.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
 
 		//moves buildings to the right
 		build1.setX(build1.getXPoint()-3);
