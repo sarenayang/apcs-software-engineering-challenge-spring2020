@@ -33,7 +33,11 @@ public class Building
 		return ypoint;
 	}
 	public void setX(int x){
-		xpoint = x;
+		if (x<-base)
+			xpoint = 1000;
+
+		else
+			xpoint = x;
 	}
 	public void setBase(int y){
 		base = y;
