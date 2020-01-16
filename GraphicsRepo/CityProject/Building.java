@@ -29,8 +29,8 @@ public class Building
 	public int getXPoint(){
 		return xpoint;
 	}
-	public int getYPoint(){
-		return ypoint;
+	public void setNewColor(int x, int y, int z){
+		color = new Color(x, y, z);
 	}
 	public void setX(int x){
 		if (x<-base)
@@ -45,22 +45,23 @@ public class Building
 
 	public void draw(Graphics page){
 		page.setColor(Color.black);
-		page.drawRect(xpoint-1, ypoint-1, base, height);
+		page.drawRect(xpoint-1, ypoint-1, base+1, height+1);
 		page.setColor(color);
 		page.fillRect(xpoint, ypoint, base, height);
 
 		//rows of windows
-		for (int xOff = WINDOW_PADDING; xOff < base - WINDOW_SIZE; xOff += WINDOW_SIZE + WINDOW_PADDING){
+		for (int xInc = WINDOW_PADDING; xInc < base - WINDOW_SIZE; xInc += WINDOW_SIZE + WINDOW_PADDING){
+
 			//columns of windows
-			for (int yOff = WINDOW_PADDING; yOff < height-WINDOW_SIZE; yOff += WINDOW_SIZE + WINDOW_PADDING) {
+			for (int yInc = WINDOW_PADDING; yInc < height-WINDOW_SIZE; yInc += WINDOW_SIZE + WINDOW_PADDING) {
 
 				//turns windows on and off
-				if (generator.nextInt(100) < 9)
+				if (generator.nextInt(100) < 15)
 					page.setColor(Color.yellow);
 				else
 					page.setColor(Color.black);
 
-				page.fillRect(xpoint+xOff, ypoint+yOff, WINDOW_SIZE, WINDOW_SIZE);
+				page.fillRect(xpoint+xInc, ypoint+yInc, WINDOW_SIZE, WINDOW_SIZE);
 			}
 		}
 	}
