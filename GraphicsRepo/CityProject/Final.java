@@ -10,19 +10,23 @@ public class Final extends JApplet{
 
 	private StoreBuild building;
 	private Sky sky;
+	private Moon moon;
 	public static final int APPLET_WIDTH = 1042;
 	public static final int APPLET_HEIGHT = 500;
-	private Graphics jav;
+
 	public void init(){
 
 		building = new StoreBuild();
 		sky = new Sky();
+		moon = new Moon();
 		setSize (APPLET_WIDTH, APPLET_HEIGHT);
 		//setBackground(Color.cyan);
 
 	}
 	public void paint(Graphics page){
+			page.fillRect(0, 300, APPLET_WIDTH, APPLET_HEIGHT);
 			sky.draw(page);
+			moon.draw(page);
 			//focuses on making and moving only the buildings
 			building.draw(page);
 

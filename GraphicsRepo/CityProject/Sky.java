@@ -11,35 +11,60 @@ public class Sky implements Runnable{
 	}
 
 	public void run(){
+		//runs a multithread
 		while (true) {
 			try{
 				Thread.sleep(100);
 			}
 			catch(Exception e){}
 
+			//time keeps track of whether it's day or night
 			time++;
+
+			//makes sure that time stays within the set range
 			time %= dnlength;
 		}
 	}
 	public void draw(Graphics page){
+
+		//x-value of the function
 		double t_idx = ((double)time/dnlength);
+
+		//y-value of the function aka "a" for mix()
 		double mixRatio = 0.5+0.5*Math.pow(Math.abs(Math.sin(2*Math.PI*t_idx)), .2);
-		if (Math.sin(2*Math.PI*t_idx)<0) mixRatio = 1.0-mixRatio;
+
+		//since Math.pow doesn't like negatives
+		if (Math.sin(2*Math.PI*t_idx)<0)
+			mixRatio = 1.0-mixRatio;
+
+		//changes the color
 		page.setColor(mix(day, night, mixRatio));
 		page.fillRect(0,0,Final.APPLET_WIDTH, Final.APPLET_HEIGHT);
 	}
 
+	//creates a new color for the sky, making a more radiant transition rather than
+	//a sudden change in color
 	public static Color mix(Color c1, Color c2, double a) {
-		System.out.println(a);
+		//System.out.println(a);
+
+		//creates a shade that's a mixture of the day and night colors
 		double r = (1.0-a)*c1.getRed() + a*c2.getRed();
 		double g = (1.0-a)*c1.getGreen() + a*c2.getGreen();
 		double b = (1.0-a)*c1.getBlue() + a*c2.getBlue();
-		if (r<0) r=0;
-		if (r>255) r=255;
-		if (g<0) g=0;
-		if (g>255) g=255;
-		if (b<0) b=0;
-		if (b>255) b=255;
+
+		//rgb value fix so range is not out of bounds
+		if (r<0)
+			r=0;
+		else if (r>255)
+			r=255;
+		if (g<0)
+			g=0;
+		else if (g>255)
+			g=255;
+		if (b<0)
+			b=0;
+		else if (b>255)
+			b=255;
 
 		return new Color((int)r, (int)g, (int)b);
 	}
