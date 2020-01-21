@@ -3,7 +3,7 @@ import java.awt.*;
 public class Sky implements Runnable{
 
 	private int time = 0, dnlength = 200;
-	Color day = new Color(135, 205, 235), night = new Color(25, 25, 112);
+	Color day = new Color(135, 205, 235), night = new Color(0, 0, 0);
 
 	public Sky(){
 		Thread thread = new Thread(this);

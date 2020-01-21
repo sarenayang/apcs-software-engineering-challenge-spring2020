@@ -14,29 +14,31 @@ public class Final extends JApplet{
 	public static final int APPLET_WIDTH = 1042;
 	public static final int APPLET_HEIGHT = 500;
 
+	Image offscreen;
+	Graphics bufferGraphics;
 	public void init(){
 
 		building = new StoreBuild();
 		sky = new Sky();
 		moon = new Moon();
+		offscreen = createImage(APPLET_WIDTH, APPLET_HEIGHT);
+		bufferGraphics = offscreen.getGraphics();
 		setSize (APPLET_WIDTH, APPLET_HEIGHT);
-		//setBackground(Color.cyan);
-
 	}
 	public void paint(Graphics page){
-			page.fillRect(0, 300, APPLET_WIDTH, APPLET_HEIGHT);
-			sky.draw(page);
-			moon.draw(page);
-			//focuses on making and moving only the buildings
-			building.draw(page);
+			bufferGraphics.clearRect(0, 0, APPLET_WIDTH, APPLET_HEIGHT);
 
+			sky.draw(bufferGraphics);
+			moon.draw(bufferGraphics);
+			//focuses on making and moving only the buildings
+			building.draw(bufferGraphics);
+
+			page.drawImage(offscreen, 0, 0, this);
 			try{
 				//pause the program for a quarter second (millisecond)
-				Thread.sleep(50);
+				Thread.sleep(100);
 			}
 			catch(InterruptedException e) {}
-
-
 
 		repaint();
 
