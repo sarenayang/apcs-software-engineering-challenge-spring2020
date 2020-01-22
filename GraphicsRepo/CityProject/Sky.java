@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Sky implements Runnable{
 
-	private int time = 0, dnlength = 200;
+	private int time = 0, dnlength = 1000;
 	Color day = new Color(135, 205, 235), night = new Color(0, 0, 0);
 
 	public Sky(){
@@ -14,7 +14,7 @@ public class Sky implements Runnable{
 		//runs a multithread
 		while (true) {
 			try{
-				Thread.sleep(100);
+				Thread.sleep(20);
 			}
 			catch(Exception e){}
 
@@ -40,6 +40,16 @@ public class Sky implements Runnable{
 		//changes the color
 		page.setColor(mix(day, night, mixRatio));
 		page.fillRect(0,0,Final.APPLET_WIDTH, Final.APPLET_HEIGHT);
+
+
+		double sun_x = Final.APPLET_WIDTH/2.0 + Final.APPLET_WIDTH/2.0*Math.cos(2.0*Math.PI*t_idx);
+		double sun_y = Final.APPLET_HEIGHT/2.0 + Final.APPLET_HEIGHT/2.0*Math.sin(2.0*Math.PI*t_idx);
+		double moon_x = Final.APPLET_WIDTH/2.0 + Final.APPLET_WIDTH/2.0*Math.cos(Math.PI+2.0*Math.PI*t_idx);
+		double moon_y = Final.APPLET_HEIGHT/2.0 + Final.APPLET_HEIGHT/2.0*Math.sin(Math.PI+2.0*Math.PI*t_idx);
+		page.setColor(Color.yellow);
+		page.fillOval((int) sun_x, (int) sun_y, 50, 50);
+		page.setColor(Color.gray);
+		page.fillOval((int) moon_x, (int) moon_y, 50, 50);
 	}
 
 	//creates a new color for the sky, making a more radiant transition rather than

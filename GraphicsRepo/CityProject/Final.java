@@ -11,6 +11,7 @@ public class Final extends JApplet{
 	private StoreBuild building;
 	private Sky sky;
 	private Moon moon;
+	private Road road;
 	public static final int APPLET_WIDTH = 1042;
 	public static final int APPLET_HEIGHT = 500;
 
@@ -21,6 +22,7 @@ public class Final extends JApplet{
 		building = new StoreBuild();
 		sky = new Sky();
 		moon = new Moon();
+		road = new Road();
 		offscreen = createImage(APPLET_WIDTH, APPLET_HEIGHT);
 		bufferGraphics = offscreen.getGraphics();
 		setSize (APPLET_WIDTH, APPLET_HEIGHT);
@@ -29,14 +31,14 @@ public class Final extends JApplet{
 			bufferGraphics.clearRect(0, 0, APPLET_WIDTH, APPLET_HEIGHT);
 
 			sky.draw(bufferGraphics);
-			moon.draw(bufferGraphics);
+			//moon.draw(bufferGraphics);
 			//focuses on making and moving only the buildings
 			building.draw(bufferGraphics);
-
+			road.draw(bufferGraphics);
 			page.drawImage(offscreen, 0, 0, this);
 			try{
 				//pause the program for a quarter second (millisecond)
-				Thread.sleep(100);
+				Thread.sleep(50);
 			}
 			catch(InterruptedException e) {}
 

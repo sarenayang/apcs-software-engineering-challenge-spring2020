@@ -2,7 +2,7 @@ import java.awt.*;
 
 public class Moon{
 
-	private int x=0, y=0;
+	private double x=0, y=0;
 	private Thread thread;
 	public Moon(){
 
@@ -11,20 +11,21 @@ public class Moon{
 	public void draw(Graphics page){
 		//moon course = (x-521)^2/1000 + (y-250)^2/500 = 1
 		page.setColor(Color.gray);
-		page.fillOval(xcoordinate(), (int) Math.sin(x), 50, 50);
-		x+=5;
+		page.fillOval(xcoordinate(), ycoordinate(), 50, 50);
+		x+=0.05;
+		y+=0.05;
 	}
 
 
 	public int xcoordinate(){
 
-		//x%= 2 * Final.APPLET_WIDTH;
-		return x;
+		//x%= Final.APPLET_WIDTH;
+		return (int)(1000* Math.cos(x));
 	}
 	public int ycoordinate(){
-		y = (int) Math.sin(x);
+		y = (int) (10*Math.sin(y));
 		//y%= Final.APPLET_HEIGHT;
-		return y;
+		return (int)y;
 	}
 
 }
