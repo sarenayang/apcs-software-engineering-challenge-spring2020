@@ -44,8 +44,6 @@ public class Building
 	}
 
 	public void draw(Graphics page){
-		page.setColor(Color.black);
-		page.drawRect(xpoint-1, ypoint-1, base+1, height+1);
 		page.setColor(color);
 		page.fillRect(xpoint, ypoint, base, height);
 
