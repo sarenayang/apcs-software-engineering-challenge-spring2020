@@ -2,22 +2,55 @@ import java.awt.*;
 
 public class Cat{
 	private int x, y;
-	public Cat(int a, int b){
+	Color bush = new Color(45, 100, 20);
+	public Cat(int a){
 		x = a;
-		y = b;
 	}
 
-	public static void draw(Graphics page){
-		page.setColor(Color.black);
+	public void draw(Graphics page){
+
+		//wheels
+		page.setColor(Color.white);
+		page.fillOval(460, 355, 30, 30);
+		page.fillOval(525, 355, 30, 30);
+		//bush
+		page.setColor(bush);
+		page.fillRect(490, 310, 40, 40);
+		page.fillRect(480, 320, 60, 40);
+		page.fillRect(470, 330, 80, 40);
+		page.fillRect(460, 340, 100,30);
+		page.fillRect(450, 350, 120,20);
+
+		if (x == 0)
+			page.setColor(Color.black);
+		else
+			page.setColor(bush);
 		//head
-		page.fillRect(500, 410, 20, 20);
+		page.fillRect(500, 330, 20, 20);
 		//left ears
-		page.fillRect(500, 405, 4, 23);
-		page.fillRect(496, 402, 4, 24);
+		page.fillRect(500, 325, 4, 23);
+		page.fillRect(496, 322, 4, 24);
 		//left whiskers
-		page.fillRect(490, 415, 23, 3);
-		page.fillRect(490, 420, 23, 3);
+		page.fillRect(490, 335, 23, 3);
+		page.fillRect(490, 340, 23, 3);
+		//right ears
+		page.fillRect(516, 325, 4, 23);
+		page.fillRect(520, 322, 4, 24);
+		//right whiskers
+		page.fillRect(507, 335, 23, 3);
+		page.fillRect(507, 340, 23, 3);
+		//eyes
+		if (x == 0)
+			page.setColor(Color.yellow);
+		else
+			page.setColor(bush);
+		page.fillRect(502, 335, 4, 4);
+		page.fillRect(515, 335, 4, 4);
+
+
 
 	}
-
+	public void setNum(int a){
+		x = a;
+	}
 }

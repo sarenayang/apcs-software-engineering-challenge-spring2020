@@ -2,15 +2,18 @@ import java.util.Random;
 import java.applet.Applet;
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.*;
 
 
 
-public class Final extends JApplet{
+public class Final extends JApplet implements MouseListener{
 	private Random gen = new Random();
 
 	private StoreBuild building;
 	private Sky sky;
 	private Yellow_Stripes road;
+	private Cat cat;
+	private int num = 0;
 	public static final int APPLET_WIDTH = 1042;
 	public static final int APPLET_HEIGHT = 500;
 
@@ -21,9 +24,11 @@ public class Final extends JApplet{
 		building = new StoreBuild();
 		sky = new Sky();
 		road = new Yellow_Stripes();
+		cat = new Cat(num);
 		offscreen = createImage(APPLET_WIDTH, APPLET_HEIGHT);
 		bufferGraphics = offscreen.getGraphics();
 		setSize (APPLET_WIDTH, APPLET_HEIGHT);
+		addMouseListener(this);
 	}
 	public void paint(Graphics page){
 			bufferGraphics.clearRect(0, 0, APPLET_WIDTH, APPLET_HEIGHT);
@@ -40,7 +45,7 @@ public class Final extends JApplet{
 			bufferGraphics.setColor(Color.green);
 			bufferGraphics.fillRect(0, 400, APPLET_WIDTH, 100);
 			road.draw(bufferGraphics);
-			Cat.draw(bufferGraphics);
+			cat.draw(bufferGraphics);
 			page.drawImage(offscreen, 0, 0, this);
 			try{
 				//pause the program for a quarter second (millisecond)
@@ -51,6 +56,19 @@ public class Final extends JApplet{
 		repaint();
 
 	}
-
-
+public void mousePressed(MouseEvent e)
+  {}
+  public void mouseReleased(MouseEvent e)
+  {}
+  public void mouseClicked(MouseEvent e)
+  {
+	 num++;
+	 num %= 2;
+	 cat.setNum(num);
+	 repaint();
+	  }
+  public void mouseEntered(MouseEvent e)
+  {}
+  public void mouseExited(MouseEvent e)
+  {}
 }
