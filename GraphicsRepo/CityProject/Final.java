@@ -13,6 +13,7 @@ public class Final extends JApplet implements MouseListener{
 	private Sky sky;
 	private Yellow_Stripes road;
 	private Cat cat;
+	private Snowman snowman;
 	private int num = 0;
 	public static final int APPLET_WIDTH = 1042;
 	public static final int APPLET_HEIGHT = 500;
@@ -25,6 +26,7 @@ public class Final extends JApplet implements MouseListener{
 		sky = new Sky();
 		road = new Yellow_Stripes();
 		cat = new Cat(num);
+		snowman = new Snowman(300);
 		offscreen = createImage(APPLET_WIDTH, APPLET_HEIGHT);
 		bufferGraphics = offscreen.getGraphics();
 		setSize (APPLET_WIDTH, APPLET_HEIGHT);
@@ -42,10 +44,11 @@ public class Final extends JApplet implements MouseListener{
 			//the road
 			bufferGraphics.setColor(Color.black);
 			bufferGraphics.fillRect(0, 300, APPLET_WIDTH, 100);
-			bufferGraphics.setColor(Color.green);
+			bufferGraphics.setColor(Color.white);
 			bufferGraphics.fillRect(0, 400, APPLET_WIDTH, 100);
 			road.draw(bufferGraphics);
 			cat.draw(bufferGraphics);
+			snowman.draw(bufferGraphics);
 			page.drawImage(offscreen, 0, 0, this);
 			try{
 				//pause the program for a quarter second (millisecond)
