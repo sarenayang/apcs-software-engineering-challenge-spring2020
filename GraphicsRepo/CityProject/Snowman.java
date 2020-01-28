@@ -1,17 +1,22 @@
 import java.awt.*;
 public class Snowman{
 
-	private int x_start;
-	public Snowman(int value){
+	private int x_start, y, command =0 ;
+	public Snowman(int value, int some){
 		x_start = value;
-
+		y = some;
 	}
 
 	public void setX(int value){
 		x_start = value;
 
 	}
-
+	public void setY(int value){
+		y = value;
+	}
+	public void setCommand(int value){
+		command = value;
+	}
 	public void draw(Graphics page){
 
 		page.setColor(Color.white);
