@@ -9,14 +9,21 @@ import java.awt.*;
 import java.util.Random;
 public class Building
 {
+	//keeps window size and space in between the same
 	private final int WINDOW_SIZE = 10;
 	private final int WINDOW_PADDING = 10;
 
+	//variables that will be called eventually
 	private int base, height, xpoint, ypoint;
 	private Color color;
+
+	//used to animate the windows based on probability
 	private Random generator = new Random();
 
     public Building(int x, int y, int xWindows, int yWindows, Color shade){
+
+		// since building is based on how many windows wanted vertically and horizontally
+		//the length and height of the building must be calculated using those values
 		 base = WINDOW_PADDING + xWindows * (WINDOW_SIZE + WINDOW_PADDING); //base and height are in pixels
 		 height = WINDOW_PADDING + yWindows * (WINDOW_SIZE + WINDOW_PADDING);
 
@@ -26,24 +33,36 @@ public class Building
 		 ypoint = y-height;
 	}
 
+	//returns x value of building
 	public int getXPoint(){
 		return xpoint;
 	}
+
+	//creates a random color for the building, different colored buildings
+	//everytime the program is ran
 	public void setNewColor(int x, int y, int z){
 		color = new Color(x, y, z);
 	}
+
+	//sets a new x value for the building
 	public void setX(int x){
+
+		//once the building is offscreen, it resets to appear on the right
 		if (x<-base)
-			xpoint = 1000;
+			xpoint = 1042;
 
 		else
 			xpoint = x;
 	}
+
+	//sets a new value for the base length (not actually used)
 	public void setBase(int y){
 		base = y;
 	}
 
 	public void draw(Graphics page){
+
+		//draws the actual building
 		page.setColor(color);
 		page.fillRect(xpoint, ypoint, base, height);
 
@@ -59,6 +78,7 @@ public class Building
 				else
 					page.setColor(Color.black);
 
+				//draws the window
 				page.fillRect(xpoint+xInc, ypoint+yInc, WINDOW_SIZE, WINDOW_SIZE);
 			}
 		}

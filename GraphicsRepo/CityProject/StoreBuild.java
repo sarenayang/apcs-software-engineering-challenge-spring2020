@@ -6,6 +6,8 @@ public class StoreBuild{
 	private Building build1, build2, build3, build4, build5, build6, build7, build8, build9;
 	Random gen = new Random();
 
+	//program is just the building class
+	//this way, the Final program isn't crowded with building calls and initialization
 	public StoreBuild(){
 
 		//when moving buildings over, do #of windows of previous building * 20 + 10 to be next to each other
@@ -21,7 +23,7 @@ public class StoreBuild{
 		build8 = new Building(912, 300, 6, 8, Color.magenta);
 		build9 = new Building(1042, 300, 6, 14, Color.darkGray);
 
-		//makes better colors haha
+		//makes different colors each time program is run
 		build1.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
 		build2.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));
 		build3.setNewColor(gen.nextInt(256), gen.nextInt(256), gen.nextInt(256));

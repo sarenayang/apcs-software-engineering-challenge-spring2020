@@ -2,12 +2,17 @@ import java.awt.*;
 
 public class Cat{
 	private int x, y;
+	//color of a bush
 	Color bush = new Color(45, 100, 20);
+
+	//x = mouse click tracker
 	public Cat(int a){
 		x = a;
 	}
 
 	public void draw(Graphics page){
+
+		//colors change to blend cat in or "disappear" on mouse click
 
 		//wheels
 		page.setColor(Color.white);
@@ -21,10 +26,14 @@ public class Cat{
 		page.fillRect(460, 340, 100,30);
 		page.fillRect(450, 350, 120,20);
 
+		//mouse was not clicked/alternating colors
 		if (x == 0)
 			page.setColor(Color.black);
+
+		//mouse was clicked
 		else
 			page.setColor(bush);
+
 		//head
 		page.fillRect(500, 330, 20, 20);
 		//left ears
@@ -39,6 +48,8 @@ public class Cat{
 		//right whiskers
 		page.fillRect(507, 335, 23, 3);
 		page.fillRect(507, 340, 23, 3);
+
+		//since eyes are different colors, needs a separate color change
 		//eyes
 		if (x == 0)
 			page.setColor(Color.yellow);

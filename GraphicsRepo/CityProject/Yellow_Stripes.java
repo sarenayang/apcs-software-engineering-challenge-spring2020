@@ -1,6 +1,11 @@
 import java.awt.*;
 public class Yellow_Stripes{
+
+	//functions the same as StoreBuild: just a way to crowd Final a little less
+
+	//total of 7 yellow_stripes
 	Road s1, s2, s3, s4, s5, s6, s7;
+
 	public Yellow_Stripes(){
 		s1 = new Road(0);
 		s2 = new Road(180);
@@ -21,6 +26,7 @@ public class Yellow_Stripes{
 		s6.draw(page);
 		s7.draw(page);
 
+		//moves the yellow stripes to the left
 		s1.setX(s1.getX()-3);
 		s2.setX(s2.getX()-3);
 		s3.setX(s3.getX()-3);

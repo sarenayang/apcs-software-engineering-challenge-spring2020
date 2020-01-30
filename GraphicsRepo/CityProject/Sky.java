@@ -2,6 +2,9 @@ import java.awt.*;
 
 public class Sky implements Runnable{
 
+	//time and dnlength help to calculate the "time of day"
+	//time/dnlength - the closer the value is to 1, the darker the sky is (night)
+	//the closer it is to 0, the lighter the sky is (day)
 	private int time = 0, dnlength = 1000;
 	Color day = new Color(135, 205, 235), night = new Color(0, 0, 0);
 
@@ -41,7 +44,8 @@ public class Sky implements Runnable{
 		page.setColor(mix(day, night, mixRatio));
 		page.fillRect(0,0,Final.APPLET_WIDTH, Final.APPLET_HEIGHT);
 
-
+		//draws the sun and moon according to an ellipse equation, sun and moon are opposite of each other
+		//thus an extra Math.PI for the moon
 		double sun_x = Final.APPLET_WIDTH/2.0 + Final.APPLET_WIDTH/2.0*Math.cos(2.0*Math.PI*t_idx);
 		double sun_y = Final.APPLET_HEIGHT/2.0 + Final.APPLET_HEIGHT/2.0*Math.sin(2.0*Math.PI*t_idx);
 		double moon_x = Final.APPLET_WIDTH/2.0 + Final.APPLET_WIDTH/2.0*Math.cos(Math.PI+2.0*Math.PI*t_idx);

@@ -6,12 +6,17 @@ public class Road{
 		x_start = x;
 	}
 
+	//changes the x position of the yellow_stripes
 	public void setX(int z){
+
+		//once the stripes are off screen, it resets back to the end of the applet
 		if (z < -70)
 			x_start = Final.APPLET_WIDTH;
 		else
 			x_start = z;
 	}
+
+	//returns x coordinate
 	public int getX(){
 		return x_start;
 	}
